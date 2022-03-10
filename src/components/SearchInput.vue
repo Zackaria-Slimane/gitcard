@@ -4,13 +4,27 @@
 
 		<input
 			type="search"
-			class="bg-transparent shadow rounded-lg border-0 p-3 w-3/5"
+			class="w-3/5 rounded-lg border-0 bg-transparent p-3 text-white shadow"
 			placeholder="Username..."
+			:value="userName"
+			@change="setUserQuerry"
 		/>
 	</div>
 </template>
 <script>
+	import store from "@/store";
+
 	export default {
 		name: "SearchInput",
+		data() {
+			return {
+				userName: store.state.userName,
+			};
+		},
+		methods: {
+			setUserQuerry: (event) => {
+				store.commit("setUserQuerry", event.target.value);
+			},
+		},
 	};
 </script>

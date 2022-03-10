@@ -1,6 +1,6 @@
 <template>
 	<div class="h-108 bg-secondaryBg rounded-2xl mt-5">
-		<slot name="Avatar"></slot>
+		<slot name="Avatar" image=""></slot>
 		<!--general user info-->
 		<div class="ml-auto text-white w-3/5 pt-16 mr-5">
 			<span class="flex flex-row justify-between">
@@ -40,5 +40,8 @@
 <script>
 	export default {
 		name: "BaseCard",
+		data() {
+			return {};
+		},
 	};
 </script>
