@@ -16,13 +16,12 @@ export default createStore({
 
 		fillUserCard(state, payload) {
 			if (state.errorState == false) {
-				console.log("PAYLOAD", payload);
-				// let cardInfo = payload;
-				// cardInfo.forEach((info, index) => {
-				// 	console.log(index);
-				// 	state.cardData.push(info);
-				// });
-				// console.log("data fetched:", state.cardData);
+				let cardInfo = payload;
+				cardInfo.forEach((info, index) => {
+					console.log(index);
+					state.cardData.push(info);
+				});
+				console.log("data fetched:", state.cardData);
 			} else {
 				state.errorState = true;
 				return;

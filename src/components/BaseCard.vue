@@ -1,38 +1,38 @@
 <template>
-	<div class="h-108 bg-secondaryBg rounded-2xl mt-5">
+	<div class="mt-5 h-108 rounded-2xl bg-secondaryBg">
 		<slot name="Avatar" image=""></slot>
 		<!--general user info-->
-		<div class="ml-auto text-white w-3/5 pt-16 mr-5">
+		<div class="ml-auto mr-5 w-3/5 pt-16 text-white">
 			<span class="flex flex-row justify-between">
-				<span>TEST 1</span>
-				<span class="mr-5">TEST 2</span>
+				<span>{{ card.username }}</span>
+				<span class="mr-5">{{ card.created_at }}</span>
 			</span>
-			<div class="my-3">TEST3</div>
+			<div class="my-3">{{ card.name }}</div>
 		</div>
-		<div class="mr-auto text-white w-3/5 pt-16">
-			<span class="ml-10 text-green-300"> Hirable</span>
-			<span class="ml-5 sm:ml-48"> Bio description</span>
+		<div class="mr-auto w-3/5 pt-16 text-white">
+			<span class="ml-10 text-green-300"> {{ card.hirable }}</span>
+			<span class="ml-5 sm:ml-48"> {{ card.description }}</span>
 		</div>
 
 		<!--mid card banner-->
 		<div
-			class="w-11/12 mt-16 p-10 rounded-2xl bg-bgColor mx-auto flex flex-row justify-between text-white"
+			class="mx-auto mt-16 flex w-11/12 flex-row justify-between rounded-2xl bg-bgColor p-10 text-white"
 		>
-			<span>repos</span>
-			<span>gists</span>
-			<span>followers</span>
-			<span>following</span>
+			<span>{{ card.public_repos }}</span>
+			<span>{{ card.public_gists }}</span>
+			<span>{{ card.foollowers }}</span>
+			<span>{{ card.following }}</span>
 		</div>
 
 		<!--bottom card banner-->
-		<div class="w-11/12 mt-12 p-10 mx-auto text-white">
-			<div class="flex flex-row justify-between mb-5">
-				<span class="ml-5">Location </span>
-				<span class="mr-5"> Blog</span>
+		<div class="mx-auto mt-12 w-11/12 p-10 text-white">
+			<div class="mb-5 flex flex-row justify-between">
+				<span class="ml-5">{{ card.location }} </span>
+				<span class="mr-5"> {{ card.blog }}</span>
 			</div>
 			<div class="flex flex-row justify-between">
-				<span class="ml-5">Twitter</span>
-				<span class="mr-5">Company</span>
+				<span class="ml-5">{{ card.twitter }}</span>
+				<span class="mr-5">{{ card.company }}</span>
 			</div>
 		</div>
 	</div>
