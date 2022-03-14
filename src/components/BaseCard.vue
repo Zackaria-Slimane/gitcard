@@ -1,6 +1,6 @@
 <template>
 	<div class="mt-5 h-108 rounded-2xl bg-secondaryBg">
-		<slot name="Avatar" image=""></slot>
+		<slot name="Avatar" :image="card.Avatar"></slot>
 		<!--general user info-->
 		<div class="ml-auto mr-5 w-3/5 pt-16 text-white">
 			<span class="flex flex-row justify-between">
@@ -10,7 +10,7 @@
 			<div class="my-3">{{ card.name }}</div>
 		</div>
 		<div class="mr-auto w-3/5 pt-16 text-white">
-			<span class="ml-10 text-green-300"> {{ card.hirable }}</span>
+			<span class="ml-10 text-green-300"> {{ card.hireable }}</span>
 			<span class="ml-5 sm:ml-48"> {{ card.description }}</span>
 		</div>
 
@@ -20,7 +20,7 @@
 		>
 			<span>{{ card.public_repos }}</span>
 			<span>{{ card.public_gists }}</span>
-			<span>{{ card.foollowers }}</span>
+			<span>{{ card.followers }}</span>
 			<span>{{ card.following }}</span>
 		</div>
 
@@ -38,10 +38,13 @@
 	</div>
 </template>
 <script>
+	import store from "@/store";
 	export default {
 		name: "BaseCard",
 		data() {
-			return {};
+			return {
+				card: store.state.cardData,
+			};
 		},
 	};
 </script>

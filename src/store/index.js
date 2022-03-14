@@ -1,14 +1,15 @@
+/* eslint-disable no-unused-vars */
 import axios from "axios";
 import { createStore } from "vuex";
 
 export default createStore({
 	state: {
 		mode: "dark",
+		cardHidden: true,
 		errorState: false,
 		userName: "",
-		cardData: [],
+		cardData: {},
 	},
-	getters: {},
 	mutations: {
 		setUserQuerry: (state, payload) => {
 			state.userName = payload;
@@ -16,14 +17,12 @@ export default createStore({
 
 		fillUserCard(state, payload) {
 			if (state.errorState == false) {
-				let cardInfo = payload;
-				cardInfo.forEach((info, index) => {
-					console.log(index);
-					state.cardData.push(info);
-				});
+				state.cardData = payload;
 				console.log("data fetched:", state.cardData);
+				state.cardHidden = false;
 			} else {
 				state.errorState = true;
+				state.cardData = [];
 				return;
 			}
 		},
@@ -51,4 +50,7 @@ export default createStore({
 		},
 	},
 	modules: {},
+	getters: {
+		getCardState: (state) => state.cardHidden,
+	},
 });
